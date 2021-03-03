@@ -1,0 +1,167 @@
+
+        :root {
+            --main-header-color:#36545e;
+        }
+        body,html {
+            margin: 0%;
+            padding: 0%;
+            background-color: #fefefe;
+        }
+        header {
+            height: 40px;
+            padding: 10px;
+            width: calc(100% - 20px);
+            line-height: 40px;
+            display: flex;
+            background: var(--main-header-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+
+        }
+        .logo {
+            text-decoration: none;
+            width: 100px;
+            margin-top: 7px;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo img{
+            width: 18%;
+        }
+        .logo a{
+            text-decoration: none;
+            color: #000;
+            font-family: sans-serif;
+
+        }
+        .menu-options {
+            width: calc(100% - 40px);
+            display: flex;
+            justify-content: flex-end;
+        }
+        .menu-options h4{
+            margin: 0;
+            color: white;
+            font-family: sans-serif;
+        }
+        .search-box {
+            width: 20%;
+            display: flex;
+            padding: 0px 20px;
+        }
+        .search-box input{
+            padding: 10px;
+            font-size: 15px;
+            background-color: #fefefe;
+            border: 1px solid #ccc;
+            width: calc(100% - 62px);
+        }
+        .btn-main{
+            padding: 10px;
+            font-size: 15px;
+            background-color: #fefefe;
+            border-style: none;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .btn-search {
+            width: 40px;
+        }
+        .search-box input:placeholder{
+            color: #ccc;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+        .item-option{
+            text-decoration: none;
+            padding: 5px 10px;
+            line-height: 30px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #ffffff;
+        }
+        .main-content {
+            margin-top: 60px;
+            width: 100%;
+            font-family: 'Spartan' , sans-serif;
+        }
+        .content-page {
+            margin: auto;
+            padding: 100px;
+            width: calc(100% - 20px);
+            max-width: 1180px;
+        }
+        .content-page section{
+            display: flex;
+        }
+        .sec1{
+            padding: 5px;
+            width: calc(60% - 10px);
+        }
+        .sec2{
+            padding: 5px;
+            width: calc(40% - 10px);
+        }
+        .sec1 img {
+            width: 100%;
+        }
+        .sec2 *{
+            margin: 15px 0;
+            color: #666;
+        }
+        .sec2 h2{
+            color: orangered;
+            font-size: 30px;
+        }
+        .title-section {
+            padding: 0px;
+            font-size: 20px;
+            color: #aaa;
+        }
+        .product-box{
+            height: 34px;
+            display: inline-table;
+            padding: 10px;
+            width: calc(100%/5 - 20px);
+        }
+        .product-box a{
+            text-decoration: none;
+        }
+        .product {
+            width: 100%;
+            border-radius: 10px ;
+            box-shadow: 0 0 8px 3px #ccc;
+            background-color : #fff;
+        }
+        .product img{
+            width: 100%;
+        }
+        .detail-title{
+            padding: 5px;
+            text-align: center;
+            font-size: 18px;
+            color: #999;
+            width: calc(100% - 10px);
+        }
+        
+        .detail-description {
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+            padding: 5px;
+            width: calc(100% - 10px);
+
+        }
+        .detail-price {
+            text-align: center;
+            font-size: 25px;
+            color: #d86a6a;
+            padding: 5px;
+            width: calc(100% - 10px);
+
+        }
+        .products-list{
+            display: table;
+            width: 100%;
+        }
+
