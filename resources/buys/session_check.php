@@ -7,24 +7,20 @@ if (!isset($_SESSION['IdUsu'])) {
 	$response->detail="No esta logeado";
 	$response->open_login=true;
 }else{
-	// include_once('../_conexion.php');
-    $response->state=true;
-    $response->detail="inicio de sesion correcto";
-	// $codusu=$_SESSION['IdUsu'];
-	// $codpro=$_POST['IdPro'];
-	// $sql="INSERT INTO pedido
-	// (codusu,codpro,fecped,estado,dirusuped,telusuped)
-	// VALUES
-	// ($codusu,$codpro,now(),1,'','')";
-	// $result=mysqli_query($con,$sql);
-	// if ($result) {
-	// 	$response->state=true;
-	// 	$response->detail="Producto agregado";
-	// }else{
-	// 	$response->state=false;
-	// 	$response->detail="No se pudo agregar producto. Intente más tarde";
-	// }
-	// mysqli_close($conn);
+	include_once('../_connection.php');
+	$IdUsu=$_SESSION['IdUsu'];
+	$IdPro=$_POST['IdPro'];
+	$sql="INSERT INTO orders(IdUsu,IdPro,DateOr,DirOr) VALUES ($IdUsu,$IdPro,now(),'')";
+	$result=mysqli_query($conn,$sql);
+    // $response->detail="inicio de sesion correcto";
+	if ($result) {
+		$response->state=true;
+		$response->detail="Producto añadido correctamente";
+	}else{
+		$response->state=false;
+		$response->detail="Error al agregar producto.";
+	}
+	mysqli_close($conn);
 }
 
 header('Content-Type: application/json');

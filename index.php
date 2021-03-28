@@ -15,19 +15,7 @@
     <style></style>
 </head>
 <body>
-    <header>
-        <div class="logo"><a href="index.php"><img src="resources/walking-solid.svg" alt="">OnFeet</a></div>
-        <div class="menu-options">
-        <div class="item-option" title="ver carrito" ><i class="fa fa-shopping-cart"></i></div>
-            <?php 
-            if (isset($_SESSION['IdUsu'])){
-                echo '<h4>'.$_SESSION['Fname'].'</h4>';
-            }else{?>
-            <div class="item-option" title="usuario"><a href="login.php"><i class="fa fa-user-o"></a></i></div>
-            <div class="item-option" title="registrase"><i class="fa fa-sign-in"></i></div>
-            <?php }?>
-        </div>
-    </header>
+    <?php include "assets/header.php"?>
     <div class="main-content">
         <div class="content-page">
             <div class="title-section">Productos</div>
@@ -80,7 +68,6 @@
                         '</div>';
                     }
                     document.getElementById("space-list").innerHTML=html;
-
                 }
             });
         })();

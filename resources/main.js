@@ -1,1 +1,1 @@
-ok 
+document.getElementById

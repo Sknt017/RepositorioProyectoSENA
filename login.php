@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en-us">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,49 +10,19 @@
     <title>Document</title>
     <link rel="stylesheet" href="resources/css/index.css">
     <style>
-            form{
-            max-width: 460px;
-            width: calc(100% - 40px);
-            padding: 15px;
-            background: #ccc;
-            margin: auto;
-        }
-        form h1 {
-            margin: 5px 0;
-            
-        }
-        form input{
-            padding: 7px 0;
-            width: calc(100% - 22px);
-
-        }
-        form button {
-            padding: 10px 15px;
-            width: calc(100% - 22px);
-        }
-        form p{
-            color: red;
-            margin: 0px;
-            font-size: 15px;
-        }
-        .logo a{
-            text-decoration: none;
-            color: #000;
-            font-family: sans-serif;
-            
-        }
     </style>
 </head>
 <body>
-    <header>
+    <?php include "assets/header_logo.php";?>
+    <!-- <header>
         <div class="logo"><a href="index.php"><img src="resources/walking-solid.svg" alt="">OnFeet</a></div>
-    </header>
+    </header> -->
     <div class="main-content">
         <div class="content-page">
         <form action="resources/access.php" method="POST">
-            <h1>Iniciar Sesion</h1>
-            <input type="text" name="Email" placeholder="Correo" class="text">
-            <input type="password" name="Pass" placeholder="Contraseña" class="password">
+            <h1>Log in</h1>
+            <input type="text" name="Email" placeholder="Email Adress" class="text">
+            <input type="password" name="Pass" placeholder="Password" class="password">
             <?php 
                 if(isset($_GET['e'])) {
                     switch($_GET['e']){
@@ -70,7 +40,10 @@
 
                 }
             ?>
-            <button type="submit" >Acceder</button>
+            <button type="submit" >Send</button>
+            <br>
+            <span>Don't have an account? <a href="signup.php">Sign Up</a></span>
+            <?php #echo var_dump($row)?>
         </form>
             
         </div>

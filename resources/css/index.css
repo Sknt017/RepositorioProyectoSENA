@@ -11,12 +11,15 @@
             height: 40px;
             padding: 10px;
             width: calc(100% - 20px);
-            line-height: 40px;
+            line-height: 10px;
+            color: white;
+            font-family: sans-serif;
             display: flex;
             background: var(--main-header-color);
             position: fixed;
             top: 0;
             left: 0;
+            cursor: pointer;
 
         }
         .logo {
@@ -49,6 +52,7 @@
             width: 20%;
             display: flex;
             padding: 0px 20px;
+            border-color: lightgray;
         }
         .search-box input{
             padding: 10px;
@@ -130,8 +134,8 @@
         .product {
             width: 100%;
             border-radius: 10px ;
-            box-shadow: 0 0 8px 3px #ccc;
             background-color : #fff;
+            border: gray;
         }
         .product img{
             width: 100%;
@@ -155,7 +159,7 @@
         .detail-price {
             text-align: center;
             font-size: 25px;
-            color: #d86a6a;
+            color: #0f0f00;
             padding: 5px;
             width: calc(100% - 10px);
 
@@ -164,4 +168,111 @@
             display: table;
             width: 100%;
         }
+        header a {
+            color: #fff;
 
+        }
+        .body-order{
+            width: calc(100% - 200px);
+        }
+        .item-order{
+            /* width: calc(100%-10px); */
+            display: flex;
+            border: 1px #ccc solid;
+            margin-bottom: 5px;
+            background: #fff;
+        }
+        .order-img{
+            width: 200px;
+        }
+        .order-img img{
+            width: 100%;
+        }
+        .order-detail{
+            padding: 10px;
+            width: calc(100% - 220px);
+        }
+        .order-detail h3,
+        .order-detail p{
+            margin: 5px 0;
+        }
+        header p{
+            line-height: 10px;
+        }
+        .options ul{
+            margin: 0;
+            padding: 0;
+        }
+        .options li a{
+            display: block;
+            color: black;
+            text-decoration: none;
+        }
+        .options{
+            display: none;
+            top: 5px;
+            padding: 10px 15px;
+            width: 150px;
+            background: #eee;
+            position: fixed;
+            top: 80px;
+            right: 30px;
+        }
+        .log input {
+            font-family: sans-serif;
+            border: none;
+            width: calc(100% - 20px);
+            padding: 0px 0px 0px 30px;
+            margin: 10px;
+            height: 5%;            
+        }
+        .log {
+            justify-content: center;
+            padding: 40px 20px;
+            margin: 5% 32%;
+            background: lightgrey;
+            border-radius: 20px;
+        }
+        .log span h1{
+            margin: 0px 30px 0px 30px;
+        }
+        form{
+            max-width: 460px;
+            width: calc(100% - 40px);
+            padding: 35px 15px 35px 15px;
+            background: lightgrey;
+            margin: auto;
+        }
+        form h1 {
+            margin: 5px 10px;
+            
+        }
+        form input{
+            border: none;
+            border-radius: 5px;
+            padding: 7px 0 7px 15px;
+            margin: 15px 0 0 24px; 
+            width: calc(100% - 62px);
+            height: 30px;
+        }
+        form button {
+            padding: 10px 15px;
+            margin: 10px 0px 22px 62px; 
+            width: calc(100% - 112px);
+            font-weight: bold;
+        }
+        form p{
+            color: red;
+            margin: 0px;
+            font-size: 15px;
+        }
+        .logo a{
+            text-decoration: none;
+            color: #000;
+            font-family: sans-serif;
+            
+        }
+        form span{
+            padding: 0;
+            margin: 0 0 0 20%;
+        }
