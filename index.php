@@ -71,6 +71,7 @@
                 }
             });
         })();
+	console.log("ver 1.3");
     </script>
 </body>
 </html>
