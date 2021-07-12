@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <title>Document</title>
+    <title class="ttle1" id="ttle2">Product View</title>
     <link rel="stylesheet" href="resources/css/index.css">
     <style></style>
 </head>
@@ -40,7 +40,7 @@
                     <h3 id="id-title">NOMBRE PRINCIPAL</h3>
                     <h2 id="id-price">120000</h2>
                     <h4 id="id-desc">Descripcion del producto</h4>
-                    <button onclick="buy_process()">COMPRAR</button>
+                    <button onclick="buy_process()">AÑADIR AL CARRITO</button>
                 </div>
             </section>
             <div class="title-section">Productos destacados</div>
@@ -86,6 +86,7 @@
                             document.getElementById("id-title").innerHTML=data.data[i].NomPro;
                             document.getElementById("id-price").innerHTML=data.data[i].PriPro;
                             document.getElementById("id-desc").innerHTML=data.data[i].MarPro;
+                            document.getElementById("ttle2").innerHTML="Prodcuto" + " " + data.data[i].NomPro;
                         }
                         html+=
                         '<div class="product-box">'+
@@ -131,7 +132,8 @@
         function open_login(){
             window.location.href="login.php";
         }
-
+        // let e = document.getElementsByClassName("ttle1");
+        // e.item[0].innerHTML = data.data[i].NomPro;
     </script>
 </body>
 </html>

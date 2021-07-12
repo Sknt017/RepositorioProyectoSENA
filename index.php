@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Pagina principal - OnFeet</title>
     <link rel="stylesheet" href="resources/css/index.css">
     <style></style>
 </head>
@@ -71,7 +71,6 @@
                 }
             });
         })();
-	console.log("ver 1.3");
     </script>
 </body>
 </html>

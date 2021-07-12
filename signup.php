@@ -21,6 +21,12 @@
 
         if($result){
             $message = 'the user has been created successfully.';
+            // include "resources/access.php";
+            // session_start();
+            // $_SESSION['IdUsu']=$row['IdUsu'];
+            // $_SESSION['Email']=$row['Email'];
+            // $_SESSION['Fname']=$row['Fname'];
+            header('Location: ./index.php');
         } else {
             $message = 'something went wrong';
         }
@@ -69,8 +75,6 @@
         <input type="password" name="password" placeholder="enter your password">
         <input type="password" name="confirm_password" placeholder="Confirm your password">
         <button type="submit">Send</button>
-        
-        
         <br>
     <span>Already have an account?   <a href="login.php">LogIn</a></span>
 

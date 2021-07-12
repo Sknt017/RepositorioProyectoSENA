@@ -4,7 +4,7 @@
     
     $data=[];
     $i=0;
-    $sql='SELECT *,ord.status statusOr FROM orders ord inner join productos pro on ord.IdPro=pro.IdPro where ord.status = 1';
+    $sql='SELECT *,ord.status statusOr FROM orders ord inner join productos pro on ord.IdPro=pro.IdPro where ord.status = 0';
     $result=mysqli_query($conn, $sql);
     while($row=mysqli_fetch_array($result)){
         $obj=new stdClass();
@@ -26,7 +26,7 @@
             case 1:
                 return "Processing";
                 break;
-            case 2:
+            case 0:
                 return "Waiting payment";
                 break;
         }
