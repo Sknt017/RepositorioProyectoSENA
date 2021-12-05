@@ -16,8 +16,6 @@
 </head>
 <body>
     <?php include "assets/header.php"?>
-    <div class="main-content">
-        <div class="content-page">
         <div class="main-content">
             <div class="grid-container">
                 <?php include "assets/filter.php"?>
