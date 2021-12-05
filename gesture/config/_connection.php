@@ -1,8 +1,8 @@
 <?php 
-    $host = 'localhost';
-    $name = 'onfeet';
-    $user = 'guest';
-    $pass = 'rorTKXrhkp3l4Wyh';
+    $host = 'b9vhkvkdciiu9cytfoca-mysql.services.clever-cloud.com';
+    $name = 'b9vhkvkdciiu9cytfoca';
+    $user = 'upwqaxpjlpxnkc9p';
+    $pass = 'MW2Rk8rWo94BtmxNeynH';
 
     // try {
     //     $conn = new PDO("mysql:host=$host;dbname=$name",$user,$pass);
