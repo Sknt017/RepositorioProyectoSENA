@@ -10,7 +10,7 @@ if (!isset($_SESSION['IdUsu'])) {
 	include_once('../_connection.php');
 	$IdUsu=$_SESSION['IdUsu'];
 	$IdPro=$_POST['IdPro'];
-	$sql="INSERT INTO orders(IdUsu,IdPro,DateOr,DirOr) VALUES ($IdUsu,$IdPro,now(),'')";
+	$sql="INSERT INTO orders(IdUsu,IdPro,DateOr,DirOr,Status) VALUES ($IdUsu,$IdPro,now(),'',1)";
 	$result=mysqli_query($conn,$sql);
     // $response->detail="inicio de sesion correcto";
 	if ($result) {

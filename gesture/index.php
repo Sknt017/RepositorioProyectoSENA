@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if($_SESSION["rol"] == 2|| !isset($_SESSION["rol"])){
+        header('Location: ../index.php');
+        echo ' this works';
+    }else if ($_SESSION["rol"] == 1){
+        echo 'Welcome '. $_SESSION["Fname"];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +21,6 @@
     <script type="text/javascript">
         function Login(){
             window.location.href='main.php';
-
         }
     </script>
 </body>

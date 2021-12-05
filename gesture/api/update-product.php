@@ -2,6 +2,7 @@
     include "../config/_connection.php";
     $response = new stdClass();
     // $response->state=true;
+    $IdPro=$_POST['IdPro'];
     $NomPro=$_POST['Name'];
     $IdMar=$_POST['Brand'];
     $TiPro=$_POST['Type'];
@@ -31,7 +32,7 @@
                         $response->state=false;
                         $response->detail="Missing img of the product";
                     }else{
-                        $sql="INSERT INTO productos(NomPro,id_mar,TiPro,PriPro,Img)VALUES('$NomPro',$IdMar,'$TiPro',$PriPro,'$Img')";
+                        $sql="UPDATE productos SET NomPro= '$NomPro', id_mar=$IdMar, TiPro = '$TiPro', PriPro = $PriPro, Img = '$Img' WHERE `productos`.`IdPro` = $IdPro;";
                         $result=mysqli_query($conn, $sql);
                         if($result){
                             $response->state=true;

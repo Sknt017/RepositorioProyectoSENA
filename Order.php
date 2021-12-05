@@ -1,9 +1,8 @@
-<?php  
-    // include 'resources/orders/get_orders.php';
+<?php 
     session_start();
     $response = new stdClass;
-    if(!isset($_SESSION["IdUsu"])){
-        header('Location: login.php');
+    if(!isset($_SESSION['IdUsu'])){
+        header('Location: ./login.php');
     };
 ?>
 <!DOCTYPE html>
@@ -48,10 +47,10 @@
 							'<div class="order-detail">'+
 								'<h3>'+data.data[i].NomPro+'</h3>'+
 								'<p><b>Precio:</b>'+data.data[i].PriPro+'</p>'+
-								'<p><b>Fecha:</b>'+data.data[i].DateOr+'</p>'+
-								'<p><b>Estado:</b>'+data.data[i].status+'</p>'+
-								'<p><b>Dirección:</b>'+data.data[i].DirOr+'</p>'+
-								'<p><b>Celular:</b>'+data.data[i].MarPro+'</p>'+
+								'<p><b>Fecha:</b> '+data.data[i].DateOr+'</p>'+
+								'<p><b>Estado:</b> '+data.data[i].status+'</p>'+
+								'<p><b>Dirección:</b> '+data.data[i].DirOr+'</p>'+
+								'<p><b>Marca:</b> '+data.data[i].MarPro+'</p>'+
 							'</div>'+
 						'</div>';
                     }

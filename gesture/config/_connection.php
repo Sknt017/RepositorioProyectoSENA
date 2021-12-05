@@ -1,8 +1,8 @@
 <?php 
     $host = 'localhost';
     $name = 'onfeet';
-    $user = 'root';
-    $pass = '';
+    $user = 'guest';
+    $pass = 'rorTKXrhkp3l4Wyh';
 
     // try {
     //     $conn = new PDO("mysql:host=$host;dbname=$name",$user,$pass);

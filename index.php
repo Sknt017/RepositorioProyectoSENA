@@ -18,8 +18,13 @@
     <?php include "assets/header.php"?>
     <div class="main-content">
         <div class="content-page">
-            <div class="title-section">Productos</div>
-            <div class="products-list" id='space-list'>
+        <div class="main-content">
+            <div class="grid-container">
+                <?php include "assets/filter.php"?>
+            <div class="content-page">
+                <div class="title-section">Productos</div>
+                <div class="products-list" id='space-list'>
+                </div>
             </div>
         </div>
     </div>
@@ -28,32 +33,46 @@
         var p='<?php $_GET["p"];?>'
     </script>
     <script type="text/javascript">
+        $(document).ready(function(){
+            $('#brand').on('change',function(){
+                var value = $(this).val();
+                // alert(value);   
+                $.ajax({
+                    url: "resources/products/fetch-products.php",
+                    type:"POST",
+                    data: 'request=' + value ,
+                    beforeSend:function(){
+                        $(".space-list").html("<span>Loading...</span>");
+                    },
+                    success:function(data){
+                    let html='';
+                    var i = 0;
+                    for(var i = 0; i < Object.keys(data.data).length; i++){
+                        html+=
+                        '<div class="product-box">'+
+                            '<a href="product.php?p='+data.data[i].IdPro+'">'+
+                                '<div class="product">'+
+                                        '<img src="'+data.data[i].Img+'" alt="">'+
+                                        '<div class="detail-title">'+data.data[i].NomPro+'</div>'+
+                                        '<div class="detail-description">'+data.data[i].MarPro+'</div>'+
+                                        '<div class="detail-price">'+data.data[i].PriPro+'</div>'+
+                                '</div>'+
+                            '</a>'+
+                        '</div>';
+                    }
+                    document.getElementById("space-list").innerHTML=html;
+                }
+                })      
+            })
+        });
         (function(){
             $.ajax({
                 url:'resources/products/get-products.php',
                 type: 'POST',
                 data:{},
                 success:function(data){
-                    // debugger;
-                    // console.log(data);
                     let html='';
                     var i = 0;
-                    // var j = data.data.lenght;
-                    // while(i < j){
-                    //     html+=
-                    //     '<div class="product-box">'+
-                    //         '<a href="">'+
-                    //             '<div class="product">'+
-                    //                     '<img src="'+data.data[i].Img+'" alt="">'+
-                    //                     '<div class="detail-title">'+data.data[i].NomPro+'</div>'+
-                    //                     '<div class="detail-description">'+data.data[i].MarPro+'</div>'+
-                    //                     '<div class="detail-price">'+data.data[i].PriPro+'</div>'+
-                    //             '</div>'+
-                    //         '</a>'+
-                    //     '</div>';
-                    //     i++;
-                    // }
-                    // console.log(Object.keys(data.data).length)
                     for(var i = 0; i < Object.keys(data.data).length; i++){
                         html+=
                         '<div class="product-box">'+
@@ -71,6 +90,7 @@
                 }
             });
         })();
+
     </script>
 </body>
 </html>

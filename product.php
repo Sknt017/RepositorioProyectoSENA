@@ -17,19 +17,6 @@
 </head>
 <body>
     <?php include "assets/header.php"?>
-    <!-- <header>
-    <div class="logo"><a href="index.php"><img src="resources/walking-solid.svg" alt="">OnFeet</a></div>
-        <div class="menu-options">
-        <div class="item-option" title="ver carrito" ><a href="Order.php"><i class="fa fa-shopping-cart"></i></a></div>
-            <?php 
-            #if (isset($_SESSION['IdUsu'])){
-                #echo '<h4>'.$_SESSION['Fname'].'</h4>';
-            #}else{?>
-            <div class="item-option" title="usuario"><a href="login.php"><i class="fa fa-user-o"></a></i></div>
-            <div class="item-option" title="registrase"><i class="fa fa-sign-in"></i></div>
-            <?php# }?>
-        </div>
-    </header> -->
     <div class="main-content">
         <div class="content-page">
             <section>
@@ -40,7 +27,7 @@
                     <h3 id="id-title">NOMBRE PRINCIPAL</h3>
                     <h2 id="id-price">120000</h2>
                     <h4 id="id-desc">Descripcion del producto</h4>
-                    <button onclick="buy_process()">AÑADIR AL CARRITO</button>
+                    <button onclick="buy_process()">COMPRAR</button>
                 </div>
             </section>
             <div class="title-section">Productos destacados</div>
@@ -86,7 +73,6 @@
                             document.getElementById("id-title").innerHTML=data.data[i].NomPro;
                             document.getElementById("id-price").innerHTML=data.data[i].PriPro;
                             document.getElementById("id-desc").innerHTML=data.data[i].MarPro;
-                            document.getElementById("ttle2").innerHTML="Prodcuto" + " " + data.data[i].NomPro;
                         }
                         html+=
                         '<div class="product-box">'+
@@ -132,8 +118,7 @@
         function open_login(){
             window.location.href="login.php";
         }
-        // let e = document.getElementsByClassName("ttle1");
-        // e.item[0].innerHTML = data.data[i].NomPro;
+
     </script>
 </body>
 </html>

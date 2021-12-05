@@ -1,7 +1,7 @@
 <header>
     <div class="logo"><a href="index.php"><img src="resources/walking-solid.svg" alt="">OnFeet</a></div>
         <div class="menu-options">
-        <div class="item-option" title="ver carrito" ><a href="Order.php"><i class="fa fa-shopping-cart"></i></a></div>
+        <div class="item-option" title="ver mis pedidos" ><a href="Order.php"><i class="fa fa-check-square-o"></i></a></div>
             <?php 
             if (isset($_SESSION['IdUsu'])){
                 echo '<div onclick="display_m()" style=""><p>'.$_SESSION['Fname'].'</p></div>';
@@ -19,14 +19,5 @@
                 </ul>
             </table>        
         </div>
-    </header>
-    <script type="text/javascript">
-        function display_m(){
-            // console.log("function enabled");
-            if(document.getElementById('menuC').style.display='none'){
-                document.getElementById('menuC').style.display='block';
-            }else{
-                document.getElementById('menuC').style.display='none';
-            }
-        }
-    </script>
+        <script src="./assets/script.js"></script>
+</header>

@@ -14,13 +14,21 @@
             $pass = $_POST['Pass'];
             $check = $row['Pass'];
             $pass2 = $_POST['Pass'];
+            $rol = $row['id_Rol'];
             // $test = password_verify($pass, $check);
             if(password_verify($pass, $check)){
                 session_start();
+                $_SESSION['rol']=$rol;
                 $_SESSION['IdUsu']=$row['IdUsu'];
                 $_SESSION['Email']=$row['Email'];
                 $_SESSION['Fname']=$row['Fname'];
-                header('Location: ../index.php');
+                if($rol == 2){
+                    echo 'cliente';
+                    header('Location: ../index.php');
+                }else if($rol == 1){
+                    echo 'admin';
+                    header('Location: ../gesture/');
+                };
             }else{
                 // echo var_dump($row['Pass']);
                 // echo var_dump($pass);
