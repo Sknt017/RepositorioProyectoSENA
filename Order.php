@@ -25,13 +25,11 @@
             <div class="body-order" id="space-list">
             </div>
             <form action="charge.php" method="POST">
-                <!-- <p>total: 210000</p>                 -->
                 <input type="hidden" name="amount" value="210000.00">
                 <input type="hidden" name="Sta" value="" id="Sta">
                 <input type="text" name="dirU" placeholder="Añadir direccion" id="dirU">
                 <input type="submit" name="submit" value="añadir direccion y Continuar a Paypal">
             </form>
-            <!-- <button onclick="Pbuy()">añadir dir y Procesar compra</button> -->
         </div>
         </div>
     </body>
@@ -78,25 +76,6 @@
             if(dirU==""){
                 alert("rellena los campos para procesar la compra");
             }
-            // else{
-            //     $.ajax({
-            //         url:'resources/orders/confirm_order.php',
-            //         type: 'POST',
-            //         data:{
-            //             dirU:dirU
-            //         },
-            //         success:function(data){
-            //             console.log(data);
-            //             if(data.state){
-            //                 window.location.href="Order.php";
-            //             }else{
-            //                 alert(data.detail);
-            //             }
-
-            //         }
-            //     })
-            // }
-            // window.location.href="Ppedido.php";
         }
 </script>
 </html>

@@ -1,6 +1,5 @@
 <?php
 require_once 'config.php';
-// require_once 'resources/orders/confirm_order.php';
 
 if (isset($_POST['submit'])) {
     
@@ -15,7 +14,6 @@ if (isset($_POST['submit'])) {
             if ($response->isRedirect()) {
                 session_start();
                 include_once('resources/_connection.php');
-                // $response=new stdClass();
                 $sta=$_POST['Sta'];
                 $IdUsu=$_SESSION['IdUsu'];
                 $dirOr=$_POST['dirU'];
@@ -26,15 +24,11 @@ if (isset($_POST['submit'])) {
                     case 2:
                         $sql="UPDATE orders SET DirOr='$dirOr', Status = 3 WHERE IdUsu = $IdUsu && Status = 2 || Status = 1 " ;
                         break;
-                    // case 3:
-                    //     $sql="UPDATE orders SET DirOr='$dirOr', Status = 2 WHERE IdUsu = $IdUsu && Status = 1 || Status = 3 " ;
-                    //     break;
                     default:
                         break;
                 }
                 $result=mysqli_query($conn, $sql);
                 if($result){
-                    // $response->state=true;
                     echo "query send successfully";
                 }else{
                     echo "somethigs wrong here";
