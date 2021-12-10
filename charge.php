@@ -32,8 +32,6 @@ if (isset($_POST['submit'])) {
                     default:
                         break;
                 }
-                // echo $sql;
-                // echo $sta;
                 $result=mysqli_query($conn, $sql);
                 if($result){
                     // $response->state=true;
@@ -41,9 +39,6 @@ if (isset($_POST['submit'])) {
                 }else{
                     echo "somethigs wrong here";
                     var_dump($_POST);
-                    // $response->state=false;
-                    // UPDATE orders SET DirOr='$dirOr', Status = 2 WHERE Status = 1 || Status = 3 && IdUsu = 8
-                    // $response->detail="Can't process buy";
                 }
                 mysqli_close($conn);
                 $response->redirect(); // this will automatically forward the customer
