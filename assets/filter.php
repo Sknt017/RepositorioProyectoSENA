@@ -13,12 +13,10 @@
                     <?php 
                     $sql="SELECT * FROM marcas;";
                     $result=mysqli_query($conn,$sql);
-                    // echo '<select name="" id="brand">';
                     while($row=mysqli_fetch_array($result))
                     {
                         echo '<option value="'.$row['id'].'">'.$row['nombre']. '</option>';
                     }
-                    // echo '</select>';
                     ?>
                     </select>
 

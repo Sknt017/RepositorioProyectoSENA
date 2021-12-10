@@ -4,8 +4,7 @@
     #3 = error de contraseña.
     include ('_connection.php');
     $email=$_POST['Email'];
-    // $password=$_POST['password'];
-    $sql = "SELECT * FROM usuarios WHERE Email='$email'";
+    $sql = "SELECT * FROM Usuarios WHERE Email='$email'";
     $result=mysqli_query($conn, $sql);
     if($result){
         $row=mysqli_fetch_array($result);
@@ -15,7 +14,6 @@
             $check = $row['Pass'];
             $pass2 = $_POST['Pass'];
             $rol = $row['id_Rol'];
-            // $test = password_verify($pass, $check);
             if(password_verify($pass, $check)){
                 session_start();
                 $_SESSION['rol']=$rol;
@@ -28,22 +26,11 @@
                 }else if($rol == 1){
                     echo 'admin';
                     header('Location: ../gesture/');
-                };
+                }
             }else{
-                // echo var_dump($row['Pass']);
-                // echo var_dump($pass);
-                // echo var_dump($pass2);
-                // echo var_dump($check);
-                // echo var_dump($test);
-                // print_r(password_get_info($check));
                 header('Location: ../login.php?e=3');
-            }; 
-                // if($row['Pass']!=$pass){
-                // }else{
-                //     session_start();
-                // }
-
-            }else{
+            }
+        }else{
             header('Location: ../login.php?e=2');
                 
         }

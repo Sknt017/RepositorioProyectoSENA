@@ -12,18 +12,6 @@
                     </div>
                     <div class="div-flex">
                         <h2>Id de marca: </h2>
-                        <!-- <select name="" id="brand-e"> -->
-                    <?php 
-                    $sql="SELECT * FROM marcas;";
-                    $result=mysqli_query($conn,$sql);
-                    // echo '<select name="" id="brand-e">';
-                    while($row=mysqli_fetch_array($result))
-                    {
-                        //echo '<option value="'.$row['nombre'].'">'.$row['nombre']. '</option>';
-                    }
-                    // echo '</select>';
-                    ?>
-                        <!-- </select> -->
                     <input type="number" class="Brand" id="Brand-e">
                 </div>
                 <div class="div-flex">
@@ -34,6 +22,13 @@
                 <div class="div-flex">
                     <h2>Precio: </h2>
                     <input type="number" id="Price-e">
+                </div>
+                <div class="div-flex">
+                    <h2>Estado: </h2>
+                    <select id="StatusP-e">
+                        <option value="0">Deshabilitado</option>
+                        <option value="1">Habilitado</option>
+                    </select>
                 </div>
                 <div class="div-flex">
                     <h2>Ruta de imagen: </h2>

@@ -1,19 +1,15 @@
 <?php 
     include "../config/_connection.php";
     $response = new stdClass();
-    // $response->state=true;
     $NomPro=$_POST['Name'];
     $IdMar=$_POST['Brand'];
     $TiPro=$_POST['Type'];
     $PriPro=$_POST['Price'];
     $Img=$_POST['Img'];
-    // var_dump($response);
     
     if($NomPro==""){
         $response->state=false;
         $response->detail="Missing name of the product";
-        // var_dump($response);
-        // return;
     }else{
         if($IdMar==""){
             $response->state=false;

@@ -5,7 +5,7 @@
     $response=new stdClass();
     $data=[];
     $i=0;
-    $sql = "SELECT *,ord.Status statusOr FROM orders ord inner join productos pro inner join marcas mar on ord.IdPro=pro.IdPro && pro.id_mar = mar.id where ord.status = 1 && Idusu = $idU";
+    $sql = "SELECT *,ord.Status statusOr FROM orders ord inner join productos pro inner join marcas mar on ord.IdPro=pro.IdPro && pro.id_mar = mar.id where Idusu = $idU";
     $result = mysqli_query($conn,$sql);
     while($row=mysqli_fetch_array($result)){
         $obj=new stdClass();
@@ -15,12 +15,14 @@
         $obj->MarPro=$row['nombre'];
         $obj->DateOr=$row['DateOr'];
         $obj->DirOr=utf8_encode($row['DirOr']);
+        $obj->quant=$row['quant'];
         $obj->PriPro=$row['PriPro'];
         $obj->status=numberChanger($row['statusOr']);
+        $obj->statusN=$row['statusOr'];
         $obj->Img=$row['Img'];
         $data[$i]=$obj;
         $i++;
-    };
+    }
     $response->data=$data;
     function numberChanger($id){
         switch ($id) {
@@ -28,7 +30,12 @@
                 return "Processing";
                 break;
             case 2:
-                return "Waiting payment";
+                return "Confirming payment";
+                break;
+            case 3:
+                return "Product unavilable";
+                break;
+            default:
                 break;
         }
     }

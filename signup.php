@@ -11,11 +11,7 @@
             $Email=$_POST['email'];
             $Fname=$_POST['Fname'];
             $Lname=$_POST['Lname'];
-            // $pass=$_POST['password'];
-            // $stmt = $conn->prepare($sql);
-            // $stmt->bindParam(':email', $_POST['email']);
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT, array("cost" => 12));
-            // $stmt->bindParam(':pass', $password);
             $sql = "INSERT INTO Usuarios(Email, Pass, Fname, Lname, id_Rol) VALUES ('$Email', '$password','$Fname','$Lname', 2)";
             $result=mysqli_query($conn, $sql);
 
@@ -35,7 +31,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Singup</title>
-    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
     <link rel="stylesheet" href="resources/css/index.css">
     <style>
         *{

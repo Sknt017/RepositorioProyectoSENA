@@ -3,7 +3,7 @@
     $response = new stdClass;
     if(!isset($_SESSION['IdUsu'])){
         header('Location: ./login.php');
-    };
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -14,9 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Pedidos</title>
     <link rel="stylesheet" href="resources/css/index.css">
-    <style></style>
 </head>
 <body>
     <?php include "assets/header_logo.php"?>
@@ -25,6 +24,14 @@
             <h3>Pedidos</h3>
             <div class="body-order" id="space-list">
             </div>
+            <form action="charge.php" method="POST">
+                <!-- <p>total: 210000</p>                 -->
+                <input type="hidden" name="amount" value="210000.00">
+                <input type="hidden" name="Sta" value="" id="Sta">
+                <input type="text" name="dirU" placeholder="Añadir direccion" id="dirU">
+                <input type="submit" name="submit" value="añadir direccion y Continuar a Paypal">
+            </form>
+            <!-- <button onclick="Pbuy()">añadir dir y Procesar compra</button> -->
         </div>
         </div>
     </body>
@@ -36,6 +43,7 @@
                 type: 'POST',
                 data:{},
                 success:function(data){
+                    var tot= [], mul=[];
                     let html='';
                     var i = 0;
                     for(var i = 0; i < Object.keys(data.data).length; i++){
@@ -50,13 +58,45 @@
 								'<p><b>Fecha:</b> '+data.data[i].DateOr+'</p>'+
 								'<p><b>Estado:</b> '+data.data[i].status+'</p>'+
 								'<p><b>Dirección:</b> '+data.data[i].DirOr+'</p>'+
+								'<p><b>Cantidad:</b> '+data.data[i].quant+'</p>'+
 								'<p><b>Marca:</b> '+data.data[i].MarPro+'</p>'+
 							'</div>'+
 						'</div>';
+                        tot.push(data.data[i].PriPro);
+                        mul.push(data.data[i].quant);
                     }
+                    Nn=i-1;
+                    console.log(Nn);
                     document.getElementById("space-list").innerHTML=html;
+                    var Stat= data.data[Nn].statusN; 
+                    document.getElementById("Sta").value=Stat;
                 }
             });
         })();
+        function Pbuy(){
+            let dirU = document.getElementById('dirU').value;
+            if(dirU==""){
+                alert("rellena los campos para procesar la compra");
+            }
+            // else{
+            //     $.ajax({
+            //         url:'resources/orders/confirm_order.php',
+            //         type: 'POST',
+            //         data:{
+            //             dirU:dirU
+            //         },
+            //         success:function(data){
+            //             console.log(data);
+            //             if(data.state){
+            //                 window.location.href="Order.php";
+            //             }else{
+            //                 alert(data.detail);
+            //             }
+
+            //         }
+            //     })
+            // }
+            // window.location.href="Ppedido.php";
+        }
 </script>
 </html>

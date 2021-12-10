@@ -24,8 +24,9 @@
         }
         .grid-container {
             display: grid;
-            grid-template-columns: auto auto;
+            grid-template-columns: auto auto ;
             grid-gap: 10px;
+            /* background-color: #2196F3; */
             padding: 10px;
           }
         .logo {
@@ -221,7 +222,6 @@
             width: 150px;
             background: #eee;
             position: fixed;
-            top: 80px;
             right: 30px;
         }
         .log input {
@@ -271,12 +271,6 @@
             color: red;
             margin: 0px;
             font-size: 15px;
-        }
-        .logo a{
-            text-decoration: none;
-            color: #000;
-            font-family: sans-serif;
-            
         }
         form span{
             padding: 0;

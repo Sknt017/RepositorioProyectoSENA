@@ -25,18 +25,15 @@
    <div class="main-container">
         <div class="body-nav-bar">
             <img src="resources/logo/walking-solid.svg" alt="">
-            <!-- <center>-->
                 <div id="tl1" style="justify-content: center; text-align: center;">
                     <h1>Administrator</h1>
                 </div>
-            <!-- </center> -->
             <ul>
                 <li><a href="">lista de productos</a></li>
                 <li><a onclick="showPed()">lista de pedidos</a></li>
-                <!-- <li><a href="">lista de proveedores</a></li> -->
+                <li><a onclick="showDp()">Ver Productos Deshabilitados</a></li>
                 <li><a onclick="showAd()">Añadir Administrador</a></li>
                 <li><a href="../logout.php">Salir</a></li>
-                <!-- <li><button onclick='showAd()'>Añadir admin</button></li> -->
             </ul>
         </div>
         <div class="body-pags">
@@ -48,6 +45,10 @@
             <div id="tped" class="tped" style="display: none;">
                 <h1>Pedidos</h1>
                     <?php include 'Orders.php' ?>
+            </div>
+            <div id="DisPro" class="tped" style="display: none;">
+                <h1>Productos Deshabilitados</h1>
+                    <?php include 'DisProducts.php' ?>
             </div>
             <?php if(!empty($message)):?>
     <p><?= $message ?></p>

@@ -1,8 +1,8 @@
 function display_m(){
-    // console.log("function enabled");
-    if(document.getElementById('menuC').style.display='none'){
-        document.getElementById('menuC').style.display='block';
+    var menuC = document.getElementById('menuC');
+    if(menuC.style.display=='none'){
+        menuC.style.display='block';
     }else{
-        document.getElementById('menuC').style.display='none';
+        menuC.style.display='none';
     }
 }

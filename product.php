@@ -13,7 +13,6 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title class="ttle1" id="ttle2">Product View</title>
     <link rel="stylesheet" href="resources/css/index.css">
-    <style></style>
 </head>
 <body>
     <?php include "assets/header.php"?>
@@ -41,32 +40,13 @@
     </script>
     <script type="text/javascript">
         (function(){
-            // debugger;
             $.ajax({
                 url:'resources/products/get-products.php',
                 type: 'POST',
                 data:{},
                 success:function(data){
-                    // debugger;
-                    // console.log(data);
                     let html='';
                     var i = 0;
-                    // var j = data.data.lenght;
-                    // while(i < j){
-                    //     html+=
-                    //     '<div class="product-box">'+
-                    //         '<a href="">'+
-                    //             '<div class="product">'+
-                    //                     '<img src="'+data.data[i].Img+'" alt="">'+
-                    //                     '<div class="detail-title">'+data.data[i].NomPro+'</div>'+
-                    //                     '<div class="detail-description">'+data.data[i].MarPro+'</div>'+
-                    //                     '<div class="detail-price">'+data.data[i].PriPro+'</div>'+
-                    //             '</div>'+
-                    //         '</a>'+
-                    //     '</div>';
-                    //     i++;
-                    // }
-                    // console.log(Object.keys(data.data).length)
                     for(var i = 0; i < Object.keys(data.data).length; i++){
                         if(data.data[i].IdPro==p){
                             document.getElementById("imgId").src=data.data[i].Img;
@@ -91,7 +71,6 @@
             });
         })();
         function buy_process() {
-            // debugger;
             $.ajax({
 				url:'resources/buys/session_check.php',
 				type:'POST',
@@ -99,7 +78,6 @@
 					IdPro:p
 				},
 				success:function(data){
-					// console.log(data);
 					if (data.state) {
 						console.log(data.detail);
 					}else{
@@ -109,11 +87,11 @@
 						}
 					}
 				},
-				error:function(err){
+				error:function(data){
+					console.error(data.detail);
 					console.error(err);
 				}
 			});
-            // debugger;
         }
         function open_login(){
             window.location.href="login.php";

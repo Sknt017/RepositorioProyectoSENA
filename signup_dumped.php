@@ -24,38 +24,6 @@
             }
         }
     }
-    // $message = '';
-
-    // if ($_POST["password"] != $_POST["confirm_password"]){
-    //     $message = 'Password Error';
-    // }else{
-    //     if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['Fname']) && !empty($_POST['Lname'])){
-    //         $Email = $_POST['Email'];
-    //         $password = $_POST['password'];
-    //         $Fname = $_POST['Fname'];
-    //         $Lname = $_POST['Lname'];
-    //         $sql = "INSERT INTO usuarios(Email, Pass, Fname, Lname) VALUES ('$Email',' $password','$Fname','$Lname')";
-    //         $result = mysqli_query($conn, $sql);
-    //         $IdUsu = mysqli_insert_id($conn);
-    //         session_start();
-    //         $_SESSION['IdUsu']=$IdUsu;
-    //         $_SESSION['Email']=$Email;
-    //         $_SESSION['Pass']=$password;
-    //         header('Location: ../');            // $stmt = $conn->mysqli_prepare($sql);
-            // $result = mysqli_prepare($conn, $sql);
-            // $result = $conn->mysqli_stmt_bind_param(':email', $_POST['email']);
-            // $result = $conn->mysqli_stmt_bind_param(':Fname', $_POST['Fname']);
-            // $result = $conn->mysqli_stmt_bind_param(':Lname', $_POST['Lname']);
-            // $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-            // $result = $conn->mysqli_stmt_bind_param(':pass', $password);
-            // $result = mysqli_stmt_execute($sql);
-            // if($result->execute()){
-            //     $message = 'the user has been created successfully.';
-            // } else {
-            //     $message = 'something went wrong';
-            // }
-    //     }
-    // }
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +32,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Singup</title>
-    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
     <link rel="stylesheet" href="resources/css/index.css">
     <style>
 /* 

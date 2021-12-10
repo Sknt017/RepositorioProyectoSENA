@@ -1,8 +1,16 @@
 function showAd() {
-    console.log('click!');
+    // console.log('click!');
     document.getElementById('log').style.display="inline";
     document.getElementById('tprod').style.display="none";
     document.getElementById('tped').style.display="none";
+    document.getElementById('DisPro').style.display="none";
+}
+function showDp(){
+    document.getElementById('DisPro').style.display="inline";
+    document.getElementById('log').style.display="none";
+    document.getElementById('tprod').style.display="none";
+    document.getElementById('tped').style.display="none";
+    
 }
 function Smodal(id){
     document.getElementById(id).style.display="block";
@@ -11,25 +19,19 @@ function Shide(id){
     document.getElementById(id).style.display="none";
 }
 function save_product(){
-    // console.log("AAAAAAAAAAAAAAAAAAAAAAAA");
     let fd=new FormData();
-    var FDN = document.getElementById('Name');
-    var FDB = document.getElementById('Brand');
-    var FDT = document.getElementById('Type');
-    var FDP = document.getElementById('Price');
-    var FDI = document.getElementById('Img');
-    fd.append('Name', FDN.value);
-    fd.append('Brand', FDB.value);
-    fd.append('Type', FDT.value);
-    fd.append('Price', FDP.value);
-    fd.append('Img', FDI.value);
+    fd.append('Name', document.getElementById('Name').value);
+    fd.append('Brand', document.getElementById('Brand').value);
+    fd.append('Type', document.getElementById('Type').value);
+    fd.append('Price', document.getElementById('Price').value);
+    fd.append('Img', document.getElementById('Img').value);
     let request=new XMLHttpRequest();
     request.open('POST','api/product_save.php',true);
     request.onload=function(){
         if(request.readyState==4 && request.status==200){
             let response=JSON.parse(request.responseText);
             if(response.state){
-                alert("ok");
+                alert("saved.");
                 console.log(response);
             }else{
                 alert(response.detail);            
@@ -40,10 +42,8 @@ function save_product(){
     request.send(fd);
 }
 function editP(IdPro){
-    // var w=confirm("¿editar producto?");
     let fd=new FormData;
     fd.append('IdPro',IdPro);
-    // console.log(IdPro);
     let request=new XMLHttpRequest();
     request.open('POST','api/get_product.php',true);
     request.onload=function(){
@@ -66,22 +66,17 @@ function showPed(){
     document.getElementById('tped').style.display="inline";
     document.getElementById('tprod').style.display="none";
     document.getElementById('log').style.display="none";
+    document.getElementById('DisPro').style.display="none";
 }
 function update_product(){
-    // console.log("AAAAAAAAAAAAAAAAAAAAAAAA");
     let fd=new FormData();
-    var FDIP = document.getElementById('IdPro-e');
-    var FDN = document.getElementById('Name-e');
-    var FDB = document.getElementById('Brand-e');
-    var FDT = document.getElementById('Type-e');
-    var FDP = document.getElementById('Price-e');
-    var FDI = document.getElementById('Img-e');
-    fd.append('IdPro',FDIP.value);
-    fd.append('Name', FDN.value);
-    fd.append('Brand', FDB.value);
-    fd.append('Type', FDT.value);
-    fd.append('Price', FDP.value);
-    fd.append('Img', FDI.value);
+    fd.append('IdPro',document.getElementById('IdPro-e').value);
+    fd.append('Name', document.getElementById('Name-e').value);
+    fd.append('Brand', document.getElementById('Brand-e').value);
+    fd.append('Type', document.getElementById('Type-e').value);
+    fd.append('Price', document.getElementById('Price-e').value);
+    fd.append('StatusP', document.getElementById('StatusP-e').value);
+    fd.append('Img', document.getElementById('Img-e').value);
     let request=new XMLHttpRequest();
     request.open('POST','api/update-product.php',true);
     request.onload=function(){
@@ -90,6 +85,7 @@ function update_product(){
             if(response.state){
                 alert("ok");
                 console.log(response);
+                window.location.href="main.php";
             }else{
                 alert(response.detail);            
                 console.log(response);
@@ -99,8 +95,6 @@ function update_product(){
     request.send(fd);
 }
 function ChaSta(IdPro, StatusP){
-    console.log("running...");
-    debugger;
     let fd = new FormData;
     fd.append('IdPro', IdPro);
     fd.append('StatusP', StatusP);
@@ -111,7 +105,7 @@ function ChaSta(IdPro, StatusP){
             let response=JSON.parse(request.responseText);
             if(response.state){
                 alert("ok");
-                console.log(response);
+                window.location.reload();
             }else{
                 alert(response.detail);            
                 console.log(response);

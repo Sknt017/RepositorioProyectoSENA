@@ -9,11 +9,7 @@
         $Email=$_POST['email'];
         $Fname=$_POST['Fname'];
         $Lname=$_POST['Lname'];
-        // $pass=$_POST['password'];
-        // $stmt = $conn->prepare($sql);
-        // $stmt->bindParam(':email', $_POST['email']);
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT, array("cost" => 12));
-        // $stmt->bindParam(':pass', $password);
         $sql = "INSERT INTO Usuarios(Email, Pass, Fname, Lname, id_Rol) VALUES ('$Email', '$password','$Fname','$Lname', 1)";
         $result=mysqli_query($conn, $sql);
     if($result){

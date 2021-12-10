@@ -9,14 +9,9 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>Login</title>
     <link rel="stylesheet" href="resources/css/index.css">
-    <style>
-    </style>
 </head>
 <body>
     <?php include "assets/header_logo.php";?>
-    <!-- <header>
-        <div class="logo"><a href="index.php"><img src="resources/walking-solid.svg" alt="">OnFeet</a></div>
-    </header> -->
     <div class="main-content">
         <div class="content-page">
         <form action="resources/access.php" method="POST">
@@ -34,6 +29,8 @@
                             break;
                         case '3':
                             echo '<p>error de contraseña</p>';
+                            break;
+                        default:
                             break;
 
                     }

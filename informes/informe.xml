@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+  <test className="APITest" methodName="Prueba_endpoint_productos" prettifiedClassName="API" prettifiedMethodName="Prueba endpoint productos" status="0" time="0.0319432" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="PruebaTest" methodName="esta_funcionando_PHPUnit" prettifiedClassName="Prueba" prettifiedMethodName="Esta funcionando PHPUnit" status="0" time="0.0001263" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+</tests>

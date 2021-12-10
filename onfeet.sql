@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-12-2021 a las 18:51:47
+-- Tiempo de generación: 10-12-2021 a las 16:52:57
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 7.3.33
 
@@ -58,6 +58,7 @@ CREATE TABLE `orders` (
   `IdPro` int(11) NOT NULL,
   `DateOr` datetime NOT NULL,
   `DirOr` varchar(100) NOT NULL,
+  `quant` int(11) DEFAULT NULL,
   `Status` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -65,11 +66,30 @@ CREATE TABLE `orders` (
 -- Volcado de datos para la tabla `orders`
 --
 
-INSERT INTO `orders` (`IdPed`, `IdUsu`, `IdPro`, `DateOr`, `DirOr`, `Status`) VALUES
-(6, 5, 27, '2021-12-05 12:50:06', '', 1),
-(7, 5, 30, '2021-12-05 12:50:08', '', 1),
-(8, 5, 29, '2021-12-05 12:50:09', '', 1),
-(9, 5, 31, '2021-12-05 12:50:10', '', 1);
+INSERT INTO `orders` (`IdPed`, `IdUsu`, `IdPro`, `DateOr`, `DirOr`, `quant`, `Status`) VALUES
+(6, 5, 27, '2021-12-05 12:50:06', 'jhiuhii', 1, 2),
+(7, 5, 30, '2021-12-05 12:50:08', 'jhiuhii', 1, 2),
+(8, 5, 29, '2021-12-05 12:50:09', 'jhiuhii', 2, 2),
+(9, 5, 31, '2021-12-05 12:50:10', 'jhiuhii', 1, 2),
+(10, 8, 27, '2021-12-05 17:28:01', '65465123', 3, 3),
+(11, 8, 18, '2021-12-05 17:28:05', '65465123', 1, 3),
+(12, 8, 29, '2021-12-07 09:55:44', '65465123', 2, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` int(11) NOT NULL,
+  `payment_id` varchar(255) NOT NULL,
+  `payer_id` varchar(255) NOT NULL,
+  `payer_email` varchar(255) NOT NULL,
+  `amount` float(10,2) NOT NULL,
+  `currency` varchar(255) NOT NULL,
+  `payment_status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -124,7 +144,8 @@ INSERT INTO `productos` (`IdPro`, `NomPro`, `id_mar`, `TiPro`, `PriPro`, `Img`, 
 (38, 'Zapatillas Louis Vuitton Trainer Denim Monogram', 8, 'sneakers', 1134000, 'https://stockx.imgix.net/Louis-Vuitton-Trainer-Sneaker-Denim-Monogram.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&trim=color&updated_at=1584468277&w=500', 1),
 (39, 'Zapatillas Louis Vuitton LV Negro', 8, 'sneakers', 1941000, 'https://stockx.imgix.net/Louis-Vuitton-LV-Trainer-Black.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&trim=color&updated_at=1600446976&w=500', 1),
 (40, 'Zapatilla Louis Vuitton Eclipse', 8, 'sneakers', 1253000, 'https://stockx.imgix.net/Louis-Vuitton-Trainer-Eclipse.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&trim=color&updated_at=1595351157&w=500', 1),
-(41, 'Monograma blanco supremo de Louis Vuitton Sport', 8, 'sneakers', 1121000, 'https://stockx-360.imgix.net//louis-vuitton-sport-supreme-white-monogram_TruView/Images/louis-vuitton-sport-supreme-white-monogram_TruView/Lv2/img01.jpg?auto=format,compress&q=90&updated_at=1598647625&w=500', 1);
+(41, 'Monograma blanco supremo de Louis Vuitton Sport', 8, 'sneakers', 1121000, 'https://stockx-360.imgix.net//louis-vuitton-sport-supreme-white-monogram_TruView/Images/louis-vuitton-sport-supreme-white-monogram_TruView/Lv2/img01.jpg?auto=format,compress&q=90&updated_at=1598647625&w=500', 1),
+(42, 'asd', 2, 'asd', 20000, 'asdasd', 0);
 
 -- --------------------------------------------------------
 
@@ -168,7 +189,8 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`IdUsu`, `Fname`, `Lname`, `Email`, `Pass`, `id_Rol`) VALUES
 (5, 'DAV', 'RUI', 'example2@hotmail.com', '$2y$12$ParrS0FIRc1Xd2D5nfu6lOX/YOkaA3991geo78JgGJ/G.OosrjtcG', 1),
 (8, 'ERG', 'ZPD', 'Example2@server.com', '$2y$12$qyXtCJRoU7kwl52WKFqIgefltnSxPaxemRz1/r7K1yume71ZCu8sa', 2),
-(9, 'WEMP', 'ERT', 'example@hotmail.com', '$2y$12$WPxl/sSejIpAX5ETDjNYgOuvcHU9jBtJkZtisb8tzckq1RTOp220a', 2);
+(9, 'WEMP', 'ERT', 'example@hotmail.com', '$2y$12$WPxl/sSejIpAX5ETDjNYgOuvcHU9jBtJkZtisb8tzckq1RTOp220a', 2),
+(10, '', '', '', 'rorTKXrhkp3l4Wyh', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -187,6 +209,12 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`IdPed`),
   ADD KEY `IdPro` (`IdPro`),
   ADD KEY `IdUsu` (`IdUsu`);
+
+--
+-- Indices de la tabla `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `productos`
@@ -222,13 +250,19 @@ ALTER TABLE `marcas`
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `IdPed` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `IdPed` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de la tabla `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `IdPro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `IdPro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -240,7 +274,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `IdUsu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `IdUsu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas

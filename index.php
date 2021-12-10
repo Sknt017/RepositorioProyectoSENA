@@ -12,7 +12,6 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>Pagina principal - OnFeet</title>
     <link rel="stylesheet" href="resources/css/index.css">
-    <style></style>
 </head>
 <body>
     <?php include "assets/header.php"?>
