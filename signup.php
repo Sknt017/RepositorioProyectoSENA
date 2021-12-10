@@ -12,7 +12,7 @@
             $Fname=$_POST['Fname'];
             $Lname=$_POST['Lname'];
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT, array("cost" => 12));
-            $sql = "INSERT INTO Usuarios(Email, Pass, Fname, Lname, id_Rol) VALUES ('$Email', '$password','$Fname','$Lname', 2)";
+            $sql = "INSERT INTO usuarios(Email, Pass, Fname, Lname, id_Rol) VALUES ('$Email', '$password','$Fname','$Lname', 2)";
             $result=mysqli_query($conn, $sql);
 
         if($result){
