@@ -4,7 +4,7 @@
     #3 = error de contraseña.
     include ('_connection.php');
     $email=$_POST['Email'];
-    $sql = "SELECT * FROM Usuarios WHERE Email='$email'";
+    $sql = "SELECT * FROM usuarios WHERE Email='$email'";
     $result=mysqli_query($conn, $sql);
     if($result){
         $row=mysqli_fetch_array($result);
