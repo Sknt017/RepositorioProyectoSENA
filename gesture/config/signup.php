@@ -10,7 +10,7 @@
         $Fname=$_POST['Fname'];
         $Lname=$_POST['Lname'];
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT, array("cost" => 12));
-        $sql = "INSERT INTO Usuarios(Email, Pass, Fname, Lname, id_Rol) VALUES ('$Email', '$password','$Fname','$Lname', 1)";
+        $sql = "INSERT INTO usuarios(Email, Pass, Fname, Lname, id_Rol) VALUES ('$Email', '$password','$Fname','$Lname', 1)";
         $result=mysqli_query($conn, $sql);
     if($result){
         $message = 'the user has been created successfully.';
