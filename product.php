@@ -80,6 +80,7 @@
 				success:function(data){
 					if (data.state) {
 						console.log(data.detail);
+                            window.location.href ="Order.php";
 					}else{
 						console.log(data.detail);
 						if (data.open_login) {
