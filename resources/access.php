@@ -3,9 +3,18 @@
     #2 = error de email.
     #3 = error de contraseña.
     include ('_connection.php');
+    // $stmt = $conn->prepare("SELECT * FROM Usuarios WHERE Email=:email;");
+    // $stmt->bind_param();
     $email=$_POST['Email'];
-    $sql = "SELECT * FROM usuarios WHERE Email='$email'";
-    $result=mysqli_query($conn, $sql);
+    // $sql = "SELECT * FROM Usuarios WHERE Email = ?";
+    $stmt = $conn->prepare('SELECT * FROM usuarios WHERE Email = ?');
+    $stmt->bind_param('s', $email);
+   
+    $stmt->execute();
+   
+    $result = $stmt->get_result();
+    // echo $email;
+    // $result=mysqli_query($conn, $sql);
     if($result){
         $row=mysqli_fetch_array($result);
         $count=mysqli_num_rows($result);
@@ -25,7 +34,7 @@
                     header('Location: ../index.php');
                 }else if($rol == 1){
                     echo 'admin';
-                    header('Location: ../gesture/');
+                    header('Location: ../gesture');
                 }
             }else{
                 header('Location: ../login.php?e=3');
