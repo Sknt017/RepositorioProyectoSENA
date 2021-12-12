@@ -30,6 +30,9 @@
                         case '3':
                             echo '<p>error de contraseña</p>';
                             break;
+                        case '4':
+                            echo '<p>Correo invalido</p>';
+                            break;
                         default:
                             break;
 

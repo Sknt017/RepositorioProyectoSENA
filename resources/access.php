@@ -8,7 +8,7 @@
     $email=$_POST['Email'];
     // $sql = "SELECT * FROM Usuarios WHERE Email = ?";
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header('Location: ../login.php?e=2');
+        header('Location: ../login.php?e=4');
     } else {
         $stmt = $conn->prepare("SELECT * FROM usuarios WHERE Email = ?");
         $stmt->bind_param('s', $_POST['Email']);
