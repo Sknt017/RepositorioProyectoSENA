@@ -5,10 +5,10 @@
     include ('_connection.php');
     // $stmt = $conn->prepare("SELECT * FROM Usuarios WHERE Email=:email;");
     // $stmt->bind_param();
-    $email=$_POST['Email'];
+    // $email=$_POST['Email'];
     // $sql = "SELECT * FROM Usuarios WHERE Email = ?";
-    $stmt = $conn->prepare('SELECT * FROM usuarios WHERE Email = ?');
-    $stmt->bind_param('s', $email);
+    $stmt = $conn->prepare("SELECT * FROM usuarios WHERE Email = ?");
+    $stmt->bind_param('s', $_POST['Email']);
    
     $stmt->execute();
    
